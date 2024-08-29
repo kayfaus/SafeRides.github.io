@@ -1,0 +1,58 @@
+import SwiftUI
+
+struct SignUpView: View {
+    @State private var carolinaCardImage: UIImage?
+    @State private var isSubmitted = false
+    @State private var isRequestAccepted = false
+    
+    var body: some View {
+        VStack {
+            Text("Sign Up")
+                .font(.largeTitle)
+                .padding()
+            
+            Text("Please submit your Carolina Card for verification.")
+                .padding()
+            
+            // Image Picker Button
+            Button(action: {
+                // Implement image picker logic here
+                // For now, just simulate an image submission
+                self.carolinaCardImage = UIImage(systemName: "photo") // Placeholder image
+                self.isSubmitted = true
+            }) {
+                Text("Submit Carolina Card")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+            
+            if isSubmitted {
+                Text("Your submission is under review.")
+                    .padding()
+                
+                if isRequestAccepted {
+                    Text("Your request has been accepted!")
+                        .foregroundColor(.green)
+                        .padding()
+                } else {
+                    Text("Awaiting admin approval.")
+                        .foregroundColor(.orange)
+                        .padding()
+                }
+            }
+            
+            Spacer()
+        }
+        .navigationTitle("Sign Up")
+        .onAppear {
+            // Simulate admin approval after a delay
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                self.isRequestAccepted = true // Simulate acceptance
+            }
+        }
+    }
+}

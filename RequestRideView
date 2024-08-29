@@ -1,0 +1,65 @@
+import SwiftUI
+import MapKit
+
+struct RequestRideView: View {
+    @State private var groupSize = ""
+    @State private var pickUpLocation = ""
+    @State private var destinationLocation = ""
+    @State private var mapRegion = MKCoordinateRegion(
+            center: CLLocationCoordinate2D(latitude: 34.0007, longitude: -81.0348), // Columbia, South Carolina
+            span: MKCoordinateSpan(latitudeDelta: 0.05, longitudeDelta: 0.05)
+    )
+    
+    var body: some View {
+        VStack {
+            Text("Find Safe Ride")
+                .font(.largeTitle)
+                .padding()
+
+            Form {
+                Section(header: Text("Ride Details")) {
+                    TextField("Enter Group Size", text: $groupSize)
+                        .keyboardType(.numberPad)
+                    
+                    TextField("Pick-Up Location", text: $pickUpLocation)
+                    
+                    TextField("Destination Location", text: $destinationLocation)
+                }
+            }
+            .padding()
+
+            Map(coordinateRegion: $mapRegion)
+                .frame(height: 300)
+                .cornerRadius(10)
+                .padding()
+
+            Button(action: {
+                requestRide()
+            }) {
+                Text("Find Safe Ride")
+                    .font(.headline)
+                    .foregroundColor(.white)
+                    .padding()
+                    .frame(maxWidth: .infinity)
+                    .background(Color.blue)
+                    .cornerRadius(10)
+            }
+            .padding()
+        }
+        .padding()
+        .navigationTitle("Request a Ride")
+    }
+    
+    private func requestRide() {
+        // Implement the logic to process the ride request
+        // For example, you might send the group size, pick-up, and destination locations to a server
+        print("Ride requested with group size: \(groupSize), pick-up: \(pickUpLocation), destination: \(destinationLocation)")
+    }
+}
+
+struct RequestRideView_Previews: PreviewProvider {
+    static var previews: some View {
+        RequestRideView()
+    }
+}
+

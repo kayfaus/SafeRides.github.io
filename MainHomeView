@@ -1,0 +1,73 @@
+// MainHomeView.swift
+
+import SwiftUI
+
+struct MainHomeView: View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                // Header with SafeRides
+                Text("SafeRides")
+                    .font(.largeTitle)
+                    .fontWeight(.bold)
+                    .foregroundColor(.pink)
+                    .padding(.top, 20)
+
+                Spacer()
+
+                // Navigation Links
+                NavigationLink(destination: ChooseCampusView()) {
+                    Text("Choose Campus")
+                        .foregroundColor(.pink)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                }
+                .padding()
+
+                NavigationLink(destination: RequestRideView()) {
+                    Text("Request a Ride")
+                        .foregroundColor(.pink)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                }
+                .padding()
+
+                NavigationLink(destination: BecomeDriverView()) {
+                    Text("Become a Driver")
+                        .foregroundColor(.pink)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                }
+                .padding()
+
+                NavigationLink(destination: SettingsView()) {
+                    Text("Settings")
+                        .foregroundColor(.pink)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                }
+                .padding()
+
+                // New: Learn More Button
+                NavigationLink(destination: OverviewView()) {
+                    Text("Learn More")
+                        .foregroundColor(.pink)
+                        .padding()
+                        .background(Color.white)
+                        .cornerRadius(10)
+                }
+                .padding()
+
+                Spacer()
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1)) // Background color for the entire view
+            .navigationTitle("Main Home")
+        }
+        .navigationViewStyle(StackNavigationViewStyle()) 
+    }
+}

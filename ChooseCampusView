@@ -1,0 +1,18 @@
+// ChooseCampusView.swift
+
+import SwiftUI
+
+struct ChooseCampusView: View {
+    var body: some View {
+        VStack {
+            Text("Currently In Progress")
+                .font(.title)
+                .padding()
+
+            Text("Available Campus: University of South Carolina")
+                .foregroundColor(Color(red: 128/255, green: 0/255, blue: 32/255)) // Garnet Red
+                .padding()
+        }
+        .navigationTitle("Choose Campus")
+    }
+}

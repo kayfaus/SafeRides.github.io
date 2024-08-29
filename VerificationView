@@ -1,0 +1,28 @@
+// VerificationView.swift
+
+import SwiftUI
+
+struct VerificationView: View {
+    @State private var selectedImage: UIImage?
+
+    var body: some View {
+        VStack {
+            // Add UI components for photo submission
+            // You can use ImagePicker or similar components
+            // Display the selected image
+            if let image = selectedImage {
+                Image(uiImage: image)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 200, height: 200)
+            }
+
+            // Add a button to submit verification
+            Button("Submit Verification") {
+                // Add logic to handle photo submission and verification
+            }
+            .padding()
+        }
+        .padding()
+    }
+}

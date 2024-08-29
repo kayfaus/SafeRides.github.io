@@ -1,0 +1,21 @@
+// OverviewView.swift
+
+import SwiftUI
+
+struct OverviewView: View {
+    var body: some View {
+        ScrollView {
+            VStack {
+                // Overview about SafeRides
+                Text("Welcome to SafeRides – an app created by a student, for female students. Recognizing the challenges of late-night rides or the need for a quick transportation solution, this app is designed to provide a safe and reliable option for your campus. Whether you want to be a driver or a student in need of a ride, SafeRides is here to help college students find a secure way to their destinations and back.")
+                    .foregroundColor(.black)
+                    .multilineTextAlignment(.center)
+                    .padding()
+
+                Spacer() // Add spacing at the bottom
+            }
+            .padding()
+        }
+        .navigationTitle("SafeRides Overview")
+    }
+}

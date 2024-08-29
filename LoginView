@@ -1,0 +1,48 @@
+import SwiftUI
+
+struct LoginView: View {
+    @State private var username = ""
+    @State private var password = ""
+    @State private var isLoggedIn = false
+    @State private var showSignUp = false
+
+    var body: some View {
+        NavigationView {
+            VStack {
+                TextField("Username", text: $username)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                SecureField("Password", text: $password)
+                    .textFieldStyle(RoundedBorderTextFieldStyle())
+                    .padding()
+                
+                // Simulate automatic login
+                NavigationLink(destination: MainHomeView(), isActive: $isLoggedIn) {
+                    EmptyView()
+                }
+                
+                Button("Login") {
+                    if self.username == "1" && self.password == "1" {
+                        // Perform login logic
+                        self.isLoggedIn = true
+                    }
+                }
+                .padding()
+
+                Spacer()
+
+                // Sign Up Button
+                NavigationLink(destination: SignUpView()) {
+                    Text("Sign Up")
+                        .font(.headline)
+                        .foregroundColor(.blue)
+                        .padding()
+                }
+                .padding()
+            }
+            .navigationTitle("Login")
+        }
+    }
+}
+

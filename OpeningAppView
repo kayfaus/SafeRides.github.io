@@ -1,0 +1,21 @@
+// OpeningAppView.swift
+
+import SwiftUI
+
+struct OpeningAppView: View {
+    var body: some View {
+        NavigationView {
+            VStack {
+                Text("Welcome to SafeRides!")
+                    .font(.title)
+                    .padding()
+
+                // Add a NavigationLink to move to LoginView
+                NavigationLink(destination: LoginView()) {
+                    Text("Start Login")
+                        .padding()
+                }
+            }
+        }
+    }
+}
